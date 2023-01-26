@@ -8,6 +8,10 @@ public class StringCalculator {
         if (numberString == null || numberString.isEmpty()) {
             return 0;
         }
-        return Arrays.stream(numberString.split(",")).map(String::trim).map(Integer::parseInt).mapToInt(n -> n).sum();
+
+        return Arrays.stream(numberString.split(","))
+            .map(String::trim)
+            .map(Integer::parseInt)
+            .mapToInt(n -> n).sum();
     }
 }
