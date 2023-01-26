@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
 //@DisplayName("StringParserTest")
-class StringParserTest {
+class StringCalculatorTest {
 
     @Test
     void 문자열_양수_더하기_테스트() {
@@ -21,5 +21,11 @@ class StringParserTest {
 
         result = StringCalculator.splitAndSum("");
         assertEquals(result, 0);
+    }
+
+    @Test
+    public void splitAndSum_숫자하나() throws Exception {
+        int result = StringCalculator.splitAndSum("1");
+        assertEquals(result, 1);
     }
 }
