@@ -11,21 +11,26 @@ public class StringCalculator {
             return 0;
         }
 
-        String delimiter = "[,:]";
         Matcher m = Pattern.compile("//(.)\n(.*)").matcher(inputString);
         if (m.find()) {
-            delimiter = m.group(1);
+            String customDelimiter = m.group(1);
             String numberString = m.group(2);
-            return splitByDelimiterAndSum(numberString, delimiter);
+            return splitByDelimiterAndSum(numberString, customDelimiter);
         }
 
-        return splitByDelimiterAndSum(inputString, delimiter);
+        return splitByDelimiterAndSum(inputString, "[,:]");
     }
 
     public static int splitByDelimiterAndSum(String numberString, String delimiter) {
         return Arrays.stream(numberString.split(delimiter))
             .map(String::trim)
             .mapToInt(Integer::parseInt)
+            .map(StringCalculator::checkMinusInt)
             .sum();
+    }
+
+    public static int checkMinusInt(int number) {
+        if (number < 0) throw new RuntimeException();
+        return number;
     }
 }
