@@ -21,7 +21,7 @@ public class StringCalculator {
         return splitByDelimiterAndSum(inputString, "[,:]");
     }
 
-    public static int splitByDelimiterAndSum(String numberString, String delimiter) {
+    private static int splitByDelimiterAndSum(String numberString, String delimiter) {
         return Arrays.stream(numberString.split(delimiter))
             .map(String::trim)
             .mapToInt(Integer::parseInt)
@@ -29,7 +29,7 @@ public class StringCalculator {
             .sum();
     }
 
-    public static void checkMinusInt(int number) {
+    private static void checkMinusInt(int number) {
         if (number < 0) throw new RuntimeException();
     }
 }
