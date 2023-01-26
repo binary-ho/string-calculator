@@ -25,12 +25,11 @@ public class StringCalculator {
         return Arrays.stream(numberString.split(delimiter))
             .map(String::trim)
             .mapToInt(Integer::parseInt)
-            .map(StringCalculator::checkMinusInt)
+            .peek(StringCalculator::checkMinusInt)
             .sum();
     }
 
-    public static int checkMinusInt(int number) {
+    public static void checkMinusInt(int number) {
         if (number < 0) throw new RuntimeException();
-        return number;
     }
 }
