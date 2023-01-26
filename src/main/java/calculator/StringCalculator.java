@@ -9,7 +9,7 @@ public class StringCalculator {
             return 0;
         }
 
-        return Arrays.stream(numberString.split(","))
+        return Arrays.stream(numberString.split("[,:]"))
             .map(String::trim)
             .mapToInt(Integer::parseInt)
             .sum();
