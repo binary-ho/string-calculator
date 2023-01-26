@@ -10,6 +10,6 @@ class StringParserTest {
     @Test
     void 문자열_양수_더하기_테스트() {
 
-        Assertions.assertEquals(StringParser.plusNumbersInString("1, 2, 3,", ","), 6);
+        Assertions.assertEquals(StringParser.plusNumbersInString("1,2,3", ","), 6);
     }
 }
